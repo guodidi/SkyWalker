@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>使用github和atom共同构建github pages</title>
-    <meta name="description" content="阐述如何使用github和atom中的协调工作">
+    <title>写在开始</title>
+    <meta name="description" content="梦想 骑士">
     <link rel="icon" type="image/x-icon" href="/SkyWalker/favicon.ico">
     <link rel="stylesheet" href="/SkyWalker/css/main.css">
-    <link rel="canonical" href="http://guodidi.github.io/SkyWalker/blog/2016/03/31/use_github_and_atom">
+    <link rel="canonical" href="http://guodidi.github.io/SkyWalker/blog/2016/03/15/what_kind_of_website_i_really_want">
     <link rel="alternate" type="application/rss+xml" title="春风十里" href="http://guodidi.github.io/SkyWalker/feed.xml ">
 </head>
 
@@ -65,37 +65,46 @@
             <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">使用github和atom共同构建github pages</h1>
+        <h1 class="post-title" itemprop="name headline">写在开始</h1>
         <p class="post-meta">
-            <time datetime="2016-03-31T22:26:54+08:00" itemprop="datePublished">Mar 31, 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">郭晓灰灰</span></span></p>
+            <time datetime="2016-03-15T00:40:09+08:00" itemprop="datePublished">Mar 15, 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">郭晓灰灰</span></span></p>
     </header>
     <div class="post-content" itemprop="articleBody">
-        <p>在使用<code>atom</code>进行基于Jekyll的静态博客的开发的过程中，由于在<code>github</code>中不支持在网页中使用插件(就是我们开发时，会在<code>_plugins</code>文件中编写的Ruby文件，这些插件可以完成一个或者多个的功能)，因此我采用的办法是将在<code>github</code>的同一个账号下建立两个仓库<code>repo</code>，一个仓库使用的是<code>gh-pages</code>分支经过<code>Jekyll</code>进行编译<code>(jekyll build)</code>好的<code>html</code>文件，另外一个仓库使用的是<code>master</code>分支向<code>github</code>的同名仓库推送源代码。</p>
+        <p><br />
+其实这篇文章是写于<code>2016-04-02</code>日，而非<code>2016-03-15</code>，我将它放在<code>2016-03-15</code>的原因是为了纪念这一天我拿到了我梦想已久的<code>驾照</code>。一扫我在<code>2016-01-27</code>科目二考试失利的感觉，讲真，我从来不是一个非常自信的人，我的自信从暑假实习以来都在一点一滴的流失，我再也回不到过去那种对自己内心狂热的自信。这种自信流失终于终止于<code>2016-03-15</code>，我是在<code>2016-02-29</code>补考的科目二，在<code>2016-03-07</code>一把过的科目三，在<code>2016-03-15</code>满分考过科目四，拿到的驾照。从这一天开始，我不仅开始重塑我的自信，而且我有了更多的时间来学习。<br />
+<br />
+大概是从今年的二月份开始，我接触到一个很吊炸天的名词<code>markdown</code>，当时我正好看完了一本名为<code>《全栈工程师的自我修养》</code>，作者说他的书是用<code>markdown</code>写出来的。当时只是想要耍帅的学习这个东西来写出不同的格式来亮瞎人们的双眼，但是随着接触的深入，我开始由学习<code>markdown</code>变成了学习怎么使用<code>Jekyll</code>来搭建自己的<code>github pages</code>，然后丢下了毕业设计，开了支线当主任务，所以每周开会的时候，总是一种<strong>虽然我什么都没有做，但是还是有一种神一般的从容和淡定</strong>的豪迈情怀。<br />
+<br />
+差不多在这半个月中我接触了以下几个神器</p>
 
-<p>这样子，如果使用命令行的话，那么就是这样子。</p>
-
-<pre><code>首先，cd到源代码的磁盘目录(Repo1)下
-cd Repo1-path
-Repo1(master): git add .
-Repo1(master): git add .
-Repo1(master): git commit --all -m "commit infomation"
-Repo1(master): git remote add origin https://github.com/guodidi/SkyWalker
-Repo1(master): git push origin master
-Repo1(master): git rm origin
-
-然后切换另外一个仓库(Repo2)
-cd Repo1-path\_site\
-Repo2(master): git checkout gh-pages
-Repo2(gh-pages): git add .
-Repo2(gh-pages): git commit --all -m "commit infomation"
-Repo2(gh-pages): git remote add origin https(gh-pages)://github.com/guodidi/SkyWalker_source_code
-Repo2(gh-pages): git push origin gh-pages
-Repo2(gh-pages): git rm origin
+<pre><code>1. atom 编辑器  
+2. github 桌面版 版本管理工具  
+3. Jekyll 静态博客开发工具  
+4. Ruby  
 </code></pre>
+<p>学习的内容有：</p>
 
-<p>那么修改多次的话，那么重复性的工作就变得太多了。因此，我查找了<code>atom</code>上著名的插件<code>git-plus</code>，然后我折腾了整整一天，然后很成功的失败了。于是我就估摸着换个工具使用，然后我自己放弃了，我看不懂英文！！！</p>
+<pre><code>1. git版本控制工具的使用，git shell 和github桌面版  
+2. SCSS、CSS、HTML5的进一步学习  
+3. Jekyll博客工具和插件的基本使用  
+4. Ruby语言的初级接触  
+5. atom工具的使用和熟悉  
+6. chrome浏览器在开发中的使用  
+7. CSSViewer的使用  
+</code></pre>
+<p><br /></p>
 
-<p>后来转念一想，总不能每次都是打命令吧。这种没成长的工作实在是不想做，没进步就没意义。突然间灵光一闪，前些日子，我装过<code>github 桌面版</code>，可以使用<code>github 桌面版</code>进行提交，而且操作步骤相当少，对于<code>github 桌面版</code>的使用下个博文进行详细进行介绍。</p>
+<h3 id="section">2016-04-02-想法</h3>
+<hr />
+<p>github pages应当有以下功能</p>
+
+<pre><code>1. 分页
+2. 图片大小调整
+3. 搜索功能
+4. 音乐播放功能
+5. 标签显示
+6. 个人联系方式logo制作
+</code></pre>
 
     </div>
 

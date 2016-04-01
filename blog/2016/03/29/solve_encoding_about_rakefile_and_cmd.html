@@ -70,9 +70,11 @@
             <time datetime="2016-03-29T15:16:59+08:00" itemprop="datePublished">Mar 29, 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">郭晓灰灰</span></span></p>
     </header>
     <div class="post-content" itemprop="articleBody">
-        <h4 id="jekyllyamlrakefilewindowscmd">问题：当我在使用Jekyll工具来学习并编写博客时，为了能够自动化处理Yaml头信息的编写时，我拷贝网上的Rakefile文件，但是这个文件在windows下读取cmd的中文字符串时是造成乱码的。</h4>
+        <blockquote>
+  <p>问题：当我在使用Jekyll工具来学习并编写博客时，为了能够自动化处理Yaml头信息的编写时，我拷贝网上的Rakefile文件，但是这个文件在windows下读取cmd的中文字符串时是造成乱码的。</p>
+</blockquote>
 
-<h4 id="section">原因：</h4>
+<p><strong>原因：</strong></p>
 
 <pre><code>    在cmd下
     C:\Users\Administrator&gt;chcp
@@ -81,30 +83,30 @@
 
 <p>上面的代码意思是本机的cmd采用的编码的活动代码页是936也就是<code>GBK</code>编码，而<code>markdown</code>文件中采用的编码是<code>UTF-8</code>，因此编码不同，所以在<code>UTF-8</code>的编码环境中打开的话就会造成乱码。而我猜想我们的问题根源可能是Rakefile读取cmd中的字符是以<code>GBK</code>的编码形式写入到<code>UTF-8</code>的markdown文件中引起的。</p>
 
-<h3 id="section-1">解决办法</h3>
+<h3 id="section">解决办法</h3>
 
 <h4 id="cmd">法一、修改cmd的默认编码</h4>
 
-<pre><code>    C:\Users\Administrator&gt;chcp utf-8
-    活动代码页: 65001
+<pre><code>C:\Users\Administrator&gt;chcp utf-8
+活动代码页: 65001
 </code></pre>
 
-<p>结果：so navia ， cmd下的<code>UTF-8</code>是不支持中文输入。看我gg了。。。</p>
+<p>结果：so navia ， cmd下的<code>UTF-8</code>是不支持中文输入。所以我就gg了。。。</p>
 
-<h3 id="rakefile">法二、啃Rakefile文件</h3>
+<h4 id="rakefile">法二、Rakefile文件</h4>
 
-<p>Ruby语言是陌生的，但是Rakefile文件中有这么一段代码</p>
+<p>Ruby语言是陌生的，但是Rakefile文件中有这么一段代码是熟悉的</p>
 
-<pre><code>    puts "请输入要创建文件名):"
-    @url = STDIN.gets.chomp
+<pre><code>puts "请输入要创建文件名):"
+@url = STDIN.gets.chomp
 </code></pre>
 
 <p>我猜<code>STDIN</code>应该是<code>standard input</code>(也就是标准设备输入—键盘呗),既然是编码不同造成的，所以就看能不能找到<code>Ruby</code>中一个方法能够将字符的编码进行转换的。因为，我记得<code>Python</code>中是有这么一种方法的，所以<code>Ruby</code>也会是有的。当我查阅了<code>Ruby</code>的<code>API</code>时，发现了这么一种方法.encoding(“UTF-8”)，于是我就尝试的使用了一下，果然可以！
   即将代码改为下面的形式</p>
 
 <p><code>
-    puts "请输入要创建的文件名"
-    @url =STDIN.gets.chomp.encoding("UTF-8")
+puts "请输入要创建的文件名"
+@url =STDIN.gets.chomp.encoding("UTF-8")
  </code></p>
 
     </div>

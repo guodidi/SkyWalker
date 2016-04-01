@@ -139,13 +139,15 @@ pre {
   line-height: 1.6; }
 
 code {
-  padding: 2px 3.5px; }
+  padding: 2px 3.5px;
+  color: red; }
 
 pre {
   margin: 15px 0;
   padding: 8px 12px;
   overflow-x: auto; }
   pre > code {
+    color: blue;
     border: 0;
     padding-right: 0;
     padding-left: 0; }
