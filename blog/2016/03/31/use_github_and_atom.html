@@ -70,29 +70,30 @@
             <time datetime="2016-03-31T22:26:54+08:00" itemprop="datePublished">Mar 31, 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">郭晓灰灰</span></span></p>
     </header>
     <div class="post-content" itemprop="articleBody">
-        <p>在使用<code>atom</code>进行基于Jekyll的静态博客的开发的过程中，由于在<code>github</code>中不支持在网页中使用插件(就是我们开发时，会在<code>_plugins</code>文件中编写的Ruby文件，这些插件可以完成一个或者多个的功能)，因此我采用的办法是将在<code>github</code>的同一个账号下建立两个仓库<code>repo</code>，一个仓库使用的是<code>gh-pages</code>分支经过<code>Jekyll</code>进行编译<code>(jekyll build)</code>好的<code>html</code>文件，另外一个仓库使用的是<code>master</code>分支向<code>github</code>的同名仓库推送源代码。</p>
+        <p>C:\Users\Administrator.atom\packages\atom-beautify\src.editorconfig 在使用<code>atom</code>进行基于Jekyll的静态博客的开发的过程中，由于在<code>github</code>中不支持在网页中使用插件(就是我们开发时，会在<code>_plugins</code>文件中编写的Ruby文件，这些插件可以完成一个或者多个的功能)，因此我采用的办法是将在<code>github</code>的同一个账号下建立两个仓库<code>repo</code>，一个仓库使用的是<code>gh-pages</code>分支经过<code>Jekyll</code>进行编译<code>(jekyll build)</code>好的<code>html</code>文件，另外一个仓库使用的是<code>master</code>分支向<code>github</code>的同名仓库推送源代码。</p>
 
-<p>这样子，如果使用命令行的话，那么就是这样子。
-```
-首先，cd到源代码的磁盘目录(Repo1)下
+<p>这样子，如果使用命令行的话，那么就是这样子。</p>
+
+<pre><code>首先，cd到源代码的磁盘目录(Repo1)下
 cd Repo1-path
 Repo1(master): git add .
 Repo1(master): git add .
-Repo1(master): git commit –all -m “commit infomation”
+Repo1(master): git commit --all -m "commit infomation"
 Repo1(master): git remote add origin https://github.com/guodidi/SkyWalker
 Repo1(master): git push origin master
-Repo1(master): git rm origin</p>
+Repo1(master): git rm origin
 
-<p>然后切换另外一个仓库(Repo2)
-cd Repo1-path_site\
+然后切换另外一个仓库(Repo2)
+cd Repo1-path\_site\
 Repo2(master): git checkout gh-pages
 Repo2(gh-pages): git add .
-Repo2(gh-pages): git commit –all -m “commit infomation”
+Repo2(gh-pages): git commit --all -m "commit infomation"
 Repo2(gh-pages): git remote add origin https(gh-pages)://github.com/guodidi/SkyWalker_source_code
 Repo2(gh-pages): git push origin gh-pages
 Repo2(gh-pages): git rm origin
-```
-那么修改多次的话，那么重复性的工作就变得太多了。因此，我查找了<code>atom</code>上著名的插件<code>git-plus</code>，然后我折腾了整整一天，然后很成功的失败了。于是我就估摸着换个工具使用，然后我自己放弃了，我看不懂英文！！！</p>
+</code></pre>
+
+<p>那么修改多次的话，那么重复性的工作就变得太多了。因此，我查找了<code>atom</code>上著名的插件<code>git-plus</code>，然后我折腾了整整一天，然后很成功的失败了。于是我就估摸着换个工具使用，然后我自己放弃了，我看不懂英文！！！</p>
 
 <p>后来转念一想，总不能每次都是打命令吧。这种没成长的工作实在是不想做，没进步就没意义。突然间灵光一闪，前些日子，我装过<code>github 桌面版</code>，可以使用<code>github 桌面版</code>进行提交，而且操作步骤相当少，对于<code>github 桌面版</code>的使用下个博文进行详细进行介绍。</p>
 

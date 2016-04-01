@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>关于markdown学习中的一些问题</title>
+    <meta name="description" content="学习时，总会遇见这样那样的问题，开个帖，记录一下">
+    <link rel="icon" type="image/x-icon" href="/SkyWalker/favicon.ico">
+    <link rel="stylesheet" href="/SkyWalker/css/main.css">
+    <link rel="canonical" href="http://guodidi.github.io/SkyWalker/blog/2016/04/01/some_problem_ahout_md">
+    <link rel="alternate" type="application/rss+xml" title="春风十里" href="http://guodidi.github.io/SkyWalker/feed.xml ">
+</head>
+
+
+<body>
+
+    <header class="site-header">
+    <div class="header-wrapper">
+        <div class="header-icon-wrapper">
+            <div class="header-icon">
+                <a href="/SkyWalker/">
+                    <img src="/SkyWalker/image/icon/home.png" alt="/" />
+                </a>
+            </div>
+            <div class="header-title">
+                <a class="site-title" href="/SkyWalker/">春风十里</a>
+            </div>
+        </div>
+        <div class="header-icon-wrapper">
+            <div class="header-icon-info">
+                <a href="/SkyWalker/about.html">
+                    <img src="/SkyWalker/image/icon/about.png" alt="/" />
+                </a>
+            </div>
+            <div class="header-info">
+                 
+                <a class="page-link" href="/SkyWalker/about.html">关于我</a>        
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--<div class="site-searche">
+        <form class="search-form" action="index.html" method="post">
+            <input class="search-text" type="text" name="name" value="请键入关键字" />
+            <button class="search-button" type="button" name="button">搜索</button>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="trigger">
+             
+            <a class="page-link" href="/SkyWalker/about.html">关于我</a>        
+        </div>
+    </nav>-->
+</header>
+
+
+    <div class="page-content">
+        <div class="content-wrapper">
+            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">关于markdown学习中的一些问题</h1>
+        <p class="post-meta">
+            <time datetime="2016-04-01T10:21:28+08:00" itemprop="datePublished">Apr 1, 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">郭晓灰灰</span></span></p>
+    </header>
+    <div class="post-content" itemprop="articleBody">
+        <h1 id="fenced-code-block-----">一、fenced code block — 围栏式代码块</h1>
+
+<hr />
+
+<p><code>Fenced code block</code>中文名字叫做围栏式代码块</p>
+
+<pre><code>围栏式代码块的用法：
+1. 切换为英文输入法，输入  
+2. 按Enter换行，进行输入，围栏式代码块中的代码、文字不会自动换行，你需要在需要换行的地方输入换行符  
+3. 围栏式代码块中在我的尝试中只能插入入列表，其他的都无法插入。  
+3. 围栏式代码就像二向箔一样，你input什么，它就output什么。
+</code></pre>
+
+<p><br />
+<br /></p>
+
+<h1 id="quote-----">二、 quote — 引用</h1>
+
+<hr />
+<p><code>quote</code>就是我们常说的引用，比如说我们写论文要标识出某句话是引用太宗说的话，毕竟相对比较权威。</p>
+
+<blockquote>
+  <p>实践是检验真理的唯一标准。</p>
+</blockquote>
+
+<pre><code>A. 引用的用法如下：
+    1. 空行
+    2. 切换到英文输入模式，&gt;+空格+引用的内容
+        &gt; 实践是检验真理的唯一标准。
+    3. 引用是可以内嵌的(以两行为基本单位找规律)
+        &gt; 某知友曾经说过
+        &gt;
+        &gt; &gt; 太宗曾经说过
+        &gt; &gt;
+        &gt; &gt; &gt; 太祖说
+        &gt; &gt; &gt;
+        &gt; &gt; &gt; &gt; meidi都是纸老虎
+        &gt; &gt; &gt;
+        &gt; &gt; &gt; 太宗不服，太祖问，为何
+        &gt; &gt;
+        &gt; &gt; 太宗曰：meidi掌握核心科技
+        &gt;
+        &gt; 吓得我都出bug了
+B. 引用的增强模式
+    1. 插入标题
+        &gt; ## header
+    2. 插入列表
+        &gt; * hello
+</code></pre>
+
+<blockquote>
+  <p>某知友曾经说过</p>
+
+  <blockquote>
+    <p>太宗曾经说过</p>
+
+    <blockquote>
+      <p>太祖说</p>
+
+      <blockquote>
+        <p>meidi都是纸老虎</p>
+      </blockquote>
+
+      <p>太宗不服，太祖问，为何</p>
+    </blockquote>
+
+    <p>太宗曰：meidi掌握核心科技</p>
+  </blockquote>
+
+  <p>吓得我都出bug了</p>
+</blockquote>
+
+<p><br /> <br /></p>
+
+<h1 id="list-----">三、list — 列表</h1>
+
+<hr />
+
+<p>markdown中的<code>list</code>分为有序列表<code>order list</code>,和无序列表<code>unordered list</code>.</p>
+
+<pre><code>order list:的用法是：数字+小数点+空格 (eg:1. hello)，写完之后回车就可以。
+unordered list:的用法是：-+小数点+空格 (eg:- hello),-也可以用*和+来代替
+
+不管是ul还是ol都是可嵌套使用的:写好第一行之后，回车到第二行，然后按下Tab键
+来向后退(4-white-space)接着选择你需要的ul或ol形式，然后进行书写，书写完之后
+Enter到下一行，按住Shift+Enter来回到原来的李的下一行。
+在书写时，如果你发现系统给你创建的序号不正确，需要你自己动手修改回你要的样式。
+
+1. Hello
+    2. 修改这个标号2，为1或是ul的标号
+    *. World
+4. 修改这个标号4，改为2
+Enter键在有序列表中换行的时候，标号都是在上一行的标号上增加1。
+</code></pre>
+
+<p>除此之外kramdown还提供了一种类似于键值对的列表形式</p>
+
+<pre><code>1. 首先先输入一个KeyWord，按Enter
+2. 切换为英文输入法，输入冒号+空格+value即可
+3. 这种列表的变式是不可以嵌套的
+eg：
+    冯唐
+    : 春水初生
+    : 春林渐盛
+    : 春风十里不如你
+</code></pre>
+
+<p>KeyWord–冯唐 : 春水初生 : 春林渐盛 : 春风十里不如你 <br /> <br /></p>
+
+<h1 id="horizon-----">四、Horizon — 段落分割线</h1>
+<hr />
+<p><code>Horizon</code>有以下几种方式，但是效果是一样的。</p>
+
+<pre><code>3个或三个以下符号，符号之间有没有空格都不影响最后显示
+1. ---    (中文输入法)
+2. ***    (无所谓输入法)
+3. ___    (英文输入法)
+4. 记住这些符号的上一行是空行！！！
+
+        中文输入法之短斜杠
+
+        ---
+        无所谓输入法之乘号
+
+        ***
+        英文输入法之下划线
+
+        ___
+</code></pre>
+
+<p>start<br />
+中文输入法之短斜杠</p>
+
+<hr />
+
+<p>无所谓输入法之乘号</p>
+
+<hr />
+
+<p>英文输入法之下划线</p>
+
+<hr />
+
+<p>end <br /></p>
+
+<h1 id="header-----">五、header — 标题</h1>
+<hr />
+<p>在kramdown中的Header是已经定制好的，但是你可以根据自己的需要去修改为自己需要的样式。Jekyll中的所有样式均在_sass文件下。</p>
+
+<pre><code>有几个#就表示几级标题
+
+    1. # 一级标题
+
+    2. ## 二级标题
+
+    3. ### 三级标题
+
+    4. #### 四级标题
+
+    5. ##### 五级标题
+
+    6. ###### 六级标题
+</code></pre>
+
+<h1 id="section">一级标题</h1>
+
+<h2 id="section-1">二级标题</h2>
+
+<h3 id="section-2">三级标题</h3>
+
+<h4 id="section-3">四级标题</h4>
+
+<h5 id="section-4">五级标题</h5>
+
+<h6 id="section-5">六级标题</h6>
+
+<p><br /></p>
+
+<h1 id="emphasis------">六、 Emphasis  — 强调</h1>
+<hr />
+
+<p>由于对于在文本中我们也许需要对某些字数的字块，进行强调突出显示，来引起读者的注意。强调有以下三种方法。</p>
+
+<pre><code>1. 斜体：
+    a. 方式一：一对星即 *information*
+    b. 方式二：一对下划线即 _information_  
+2. 加粗
+    a. 方式一：一对双星即 **information**
+    b. 方式二：一对双下划线即 __information__
+3. 加粗加斜体
+    a. 方式一：一对三星即 ***information***
+    b. 方式二：一对三下划线即 ___information___
+4. 不论是加粗还是斜体可以用于字母，单词，词组。
+eg：
+    斜体： *一对单星*
+    斜体： _一对下划线_
+    粗体： **一对双星**
+    粗体： __一对下划线__
+    斜粗： ***一对双星***
+    斜粗： ___一对下划线___
+</code></pre>
+
+<p><br /><br />
+斜体： <em>一对单星</em><br />
+斜体： <em>一对下划线</em><br />
+粗体： <strong>一对双星</strong><br />
+粗体： <strong>一对下划线</strong><br />
+斜粗： <strong><em>一对双星</em></strong><br />
+斜粗： <strong><em>一对下划线</em></strong><br />
+<br /><br /></p>
+
+<h1 id="section-6">七、链接与图片</h1>
+<hr />
+<p><strong>markdown中提供了两种链接的形式</strong></p>
+
+<pre><code>1. [百度](http://www.baidu.com)可以为你提供各种不同的帮助(没有特别的要注意的)
+格式：网址说明[要显示的名字](链接的网址)这里可以继续添加说明
+
+2. 这是[百度的链接][baidu]可以为你提供各种不同的帮助
+
+[baidu site]:http://www.baidu.com
+格式：网站说明[要显示的网站的名称][月老的红线]继续添加网站说明
+空行！！！！！！一定要有否则不显示
+[月老的红线]:网址链接
+
+3. 个人推荐第一种，第二种太麻烦了。
+</code></pre>
+<ol>
+  <li><a href="http://www.baidu.com">百度</a>可以为你提供各种不同的帮助</li>
+  <li>这是<a href="http://www.baidu.com">百度的链接</a>可以为你提供各种不同的帮助</li>
+</ol>
+
+<p><br />
+<br />
+<strong>markdown同时也提供了插入图片链接的功能，我个人使用的是图片的外链进行插入图片。并不会使用插入本地的图片的链接的方式。</strong></p>
+
+<pre><code>1. 对于图片外链的来源，我采用的是七牛云存储来存储图片并且生成外链。有兴趣的可以自己去看看，几乎不需要费用。
+2. An image: ![gras](http://7xsi2r.com2.z0.glb.clouddn.com/guoxh20160309232347.jpg)
+  格式： 英文感叹号[图片要显示的名称](图片的链接的地址)
+3. 对于图片的处理，Jekyll上又很的插件可以供使用，不过我还没有进行使用，等有时间在尝试吧。
+</code></pre>
+<p>这是我放在七牛云上的一张图片，要学着敬畏未知，却不惧怕！<img src="http://7xsi2r.com2.z0.glb.clouddn.com/guoxh20160309232347.jpg" alt="gras" /></p>
+
+<p><br /><br /></p>
+
+<h1 id="markdown">八、markdown还有</h1>
+<hr />
+<p><code>markdown中还有table值得去学，不过我是极少用到，因此就没去学过了</code><br />
+<code>markdown中还有和HTML相结合的内容，随你的意</code><br />
+更多有关于<code>kramdown</code>中对于markdown的使用请看<strong><em><a href="http://kramdown.gettalong.org/quickref.html">kramdown的官网</a></em></strong>的介绍。
+由于在markdown是一种实现了<code>GFM</code>的语言格式，因此不同的markdown的解析器就可能有不同的实现方式。这就好比是养猪，虽然养出来的都是猪，
+但是大家用的饲料，饲养方式都不同。因此猪肉味或多或少有些不同。顺带普及下，<code>GFM</code>是一种定义格式，也可以说是一种接口，一种协议而已。
+全称是<code>Github Favore Markup</code>。</p>
+
+<p><br />
+<br />
+<br />
+<br /></p>
+
+<h1 id="section-7">随记、使用中遇见的问题</h1>
+
+<h3 id="difference-between-hard-wrapper-and-soft-wrapper">1. Difference between hard wrapper and soft wrapper?</h3>
+
+<hr />
+
+<blockquote>
+  <p>with soft wrapping the actual text is still on the same line but looks like it’s divided into several lines.</p>
+</blockquote>
+
+<p>理解：如果是要换行的话，那么<code>hard wrapper</code>必须要在要换行的地方插入换行符(常见的Enter键),而如果是<code>soft wrapper</code>的话，可以自适应的换行，而不需要强制插入换行符(举个例子，mobi格式的电子书，如果你改变页边距的话，那么文字就会自动换行，这种方法在网页中同样常见)。不过我使用的<code>atom</code>编辑器中并没有这个问题，如果你遇到了这个问题，那么按照以下操作即可。</p>
+
+<pre><code>1. open atom -&gt; File -&gt; Setting -&gt; selected soft wrapper
+2. install markdown plugin ---atomicChar
+</code></pre>
+
+<p><br /> <br /></p>
+
+<h3 id="section-8">2. 为什么有一些样式无法生效</h3>
+<dl>
+  <dt>尝试下面的方法</dt>
+  <dd>a. 对于#、&gt;、:、数字、*、+、—等记得一定要在他们后面加空格</dd>
+  <dd>b. 对于# 、代码块、的```、分段符 — 的上一行一定要是空行</dd>
+  <dd>c. atom中默认会删除掉行末的空格，因此会对书写md文件产生不便</dd>
+  <dd>d. 如果你用的是atom编辑器，atom默认设置会删除末尾的空格，因此你需要<code>File -&gt; config</code>找到<code>removeTrailingWhitespac</code>并把它的值由true改为false即可。顺带说下，我还修改了<code>atom-beautify</code>插件中有<code>trim_trailing_whitespace</code>的文件里都添加了一句不知是否有用的代码，如下，添加后也没有发现什么错误。
+
+    <pre><code>  [*.md]
+  trim_trailing_whitespace = false
+</code></pre>
+  </dd>
+  <dd>e. markdown中回车键的是无法实现换行的，要换行要使用<code>&lt;br&gt;</code>关键字</dd>
+</dl>
+
+    </div>
+
+    <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2091728"></script>
+<!-- UY END -->
+
+
+</article>
+
+        </div>
+    </div>
+
+    <footer class="site-footer">
+    <div class="footer-wrapper">
+        <div class="baymax">
+            <!--head-->
+            <div class="head">
+                <div class="eye-left"></div>
+                <div class="eye-right"></div>
+                <div class="mouth"></div>
+            </div>
+            <div class="torso">
+                <div class="heart"></div>
+            </div>
+            <div class="belly">
+                <div class="cover"></div>
+            </div>
+            <div class="arm-left">
+                <div class="finger-left-big"></div>
+                <div class="finger-left-small"></div>
+            </div>
+            <div class="arm-right">
+                <div class="finger-right-big"></div>
+                <div class="finger-right-small"></div>
+            </div>
+            <div class="leg-left"></div>
+            <div class="leg-right"></div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>
