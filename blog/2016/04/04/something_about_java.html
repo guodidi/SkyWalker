@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Java Swing 学习中的部分问题</title>
+    <meta name="description" content="Java Swing">
+    <link rel="icon" type="image/x-icon" href="/SkyWalker/favicon.ico">
+    <link rel="stylesheet" href="/SkyWalker/css/main.css">
+    <link rel="canonical" href="http://guodidi.github.io/SkyWalker/blog/2016/04/04/something_about_java">
+    <link rel="alternate" type="application/rss+xml" title="春风十里" href="http://guodidi.github.io/SkyWalker/feed.xml ">
+</head>
+
+
+<body>
+
+    <header class="site-header">
+    <div class="header-wrapper">
+        <div class="header-icon-wrapper">
+            <div class="header-icon">
+                <a href="/SkyWalker/">
+                    <img src="/SkyWalker/image/icon/home.png" alt="/" />
+                </a>
+            </div>
+            <div class="header-title">
+                <a class="site-title" href="/SkyWalker/">春风十里</a>
+            </div>
+        </div>
+        <div class="header-icon-wrapper">
+            <div class="header-icon-info">
+                <a href="/SkyWalker/about.html">
+                    <img src="/SkyWalker/image/icon/about.png" alt="/" />
+                </a>
+            </div>
+            <div class="header-info">
+                 
+                <a class="page-link" href="/SkyWalker/about.html">关于我</a>        
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--<div class="site-searche">
+        <form class="search-form" action="index.html" method="post">
+            <input class="search-text" type="text" name="name" value="请键入关键字" />
+            <button class="search-button" type="button" name="button">搜索</button>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="trigger">
+             
+            <a class="page-link" href="/SkyWalker/about.html">关于我</a>        
+        </div>
+    </nav>-->
+</header>
+
+
+    <div class="page-content">
+        <div class="content-wrapper">
+            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Java Swing 学习中的部分问题</h1>
+        <p class="post-meta">
+            <time datetime="2016-04-04T16:11:41+08:00" itemprop="datePublished">Apr 4, 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">郭晓灰灰</span></span></p>
+    </header>
+    <div class="post-content" itemprop="articleBody">
+        <h2 id="section">强制刷新屏幕</h2>
+<p>如果需要重绘窗口是一定不能自己调用<code>paintComponent</code>方法，因为在程序如果需要重绘的时候，会自动的调用<code>paintComponent</code>方法来重绘。一般可以触发这个重绘的操作，通常有改变窗口大小，弹窗，总而言之，就是原有的窗口形式被破坏就是窗口被重绘之时。这里的<code>repaint</code>中调用的<code>paintComponent</code>方法是JDK给我们提供的方法。<strong>所以如果我们要自定义我们要绘制的组件，就必须要自己来重写<em>paintCompont</em>方法</strong></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="lineno">1</span>  
+<span class="lineno">2</span> <span class="kp">protected</span> <span class="n">void</span> <span class="n">paintComponent</span><span class="p">(</span><span class="no">Graphics</span> <span class="n">g</span><span class="p">)</span> <span class="p">{</span>
+<span class="lineno">3</span>     <span class="k">super</span><span class="o">.</span><span class="n">paintCompont</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>
+<span class="lineno">4</span>     <span class="n">code</span> <span class="k">for</span> <span class="n">youself</span><span class="p">;</span>
+<span class="lineno">5</span> <span class="p">}</span> </code></pre></figure>
+
+<blockquote>
+  <p><code>repaint</code>方法的执行过程：调用<code>paint</code>方法，按顺序执行<code>paint</code>方法中的三个方法<br />
+<strong>1</strong>、paintComponent<br />
+<strong>2</strong>、paintBorder<br />
+<strong>3</strong>、paintChildren</p>
+</blockquote>
+
+    </div>
+
+    <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2091728"></script>
+<!-- UY END -->
+
+
+</article>
+
+        </div>
+    </div>
+
+    <footer class="site-footer">
+    <div class="footer-wrapper">
+        <div class="baymax">
+            <!--head-->
+            <div class="head">
+                <div class="eye-left"></div>
+                <div class="eye-right"></div>
+                <div class="mouth"></div>
+            </div>
+            <div class="torso">
+                <div class="heart"></div>
+            </div>
+            <div class="belly">
+                <div class="cover"></div>
+            </div>
+            <div class="arm-left">
+                <div class="finger-left-big"></div>
+                <div class="finger-left-small"></div>
+            </div>
+            <div class="arm-right">
+                <div class="finger-right-big"></div>
+                <div class="finger-right-small"></div>
+            </div>
+            <div class="leg-left"></div>
+            <div class="leg-right"></div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

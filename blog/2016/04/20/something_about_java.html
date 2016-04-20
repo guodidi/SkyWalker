@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>在毕业设计中遇见的关于Java的问题</title>
+    <meta name="description" content="在两个连续的while(true){while(condition2{//dosomething})}中，如果第二个condition2是动态的，那么可能会造成程序的不正常执行。">
+    <link rel="icon" type="image/x-icon" href="/SkyWalker/favicon.ico">
+    <link rel="stylesheet" href="/SkyWalker/css/main.css">
+    <link rel="canonical" href="http://guodidi.github.io/SkyWalker/blog/2016/04/20/something_about_java">
+    <link rel="alternate" type="application/rss+xml" title="春风十里" href="http://guodidi.github.io/SkyWalker/feed.xml ">
+</head>
+
+
+<body>
+
+    <header class="site-header">
+    <div class="header-wrapper">
+        <div class="header-icon-wrapper">
+            <div class="header-icon">
+                <a href="/SkyWalker/">
+                    <img src="/SkyWalker/image/icon/home.png" alt="/" />
+                </a>
+            </div>
+            <div class="header-title">
+                <a class="site-title" href="/SkyWalker/">春风十里</a>
+            </div>
+        </div>
+        <div class="header-icon-wrapper">
+            <div class="header-icon-info">
+                <a href="/SkyWalker/about.html">
+                    <img src="/SkyWalker/image/icon/about.png" alt="/" />
+                </a>
+            </div>
+            <div class="header-info">
+                 
+                <a class="page-link" href="/SkyWalker/about.html">关于我</a>        
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--<div class="site-searche">
+        <form class="search-form" action="index.html" method="post">
+            <input class="search-text" type="text" name="name" value="请键入关键字" />
+            <button class="search-button" type="button" name="button">搜索</button>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="trigger">
+             
+            <a class="page-link" href="/SkyWalker/about.html">关于我</a>        
+        </div>
+    </nav>-->
+</header>
+
+
+    <div class="page-content">
+        <div class="content-wrapper">
+            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">在毕业设计中遇见的关于Java的问题</h1>
+        <p class="post-meta">
+            <time datetime="2016-04-20T16:45:11+08:00" itemprop="datePublished">Apr 20, 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">郭晓灰灰</span></span></p>
+    </header>
+    <div class="post-content" itemprop="articleBody">
+        <h1 id="while">关于While嵌套中的一些问题记录</h1>
+
+<p>当我在写毕业设计的时候，我在编写while语句嵌套的时候，出现了如下的问题。先做下记录，为了以后如若找到答案，可以进行再次更新。  郭</p>
+
+<p>问题是这样子的：</p>
+
+<p>编写格式</p>
+
+<pre><code>//完成功能：flag是一个可由外界控制的值，起始时flag=false(boolean类型),flag可以随外
+//界的赋值而改变，当赋值flag=true时，可以输出`flag: true`的程序结果
+while(true){
+    while(flag){
+        System.out.println("flag: "+flag);
+    }
+} 
+</code></pre>
+
+<h2 id="section">测试一：</h2>
+
+<p>现源代码A是：</p>
+
+<pre><code>while (true){
+    while (start_flag) {
+        System.out.println("start_flag： "+start_flag);
+    }
+}
+//代码如此书写但是无论怎么运行，都无法将println后的数据成功输出
+//注意：我说的是运行(run!!!)，这段代码用Debug是完全正常的！！！！
+</code></pre>
+
+<p>所以我查看了源代码A对应的class文件A—class的编译数据是</p>
+
+<pre><code>while(true) {
+    while(!start_flag) {
+        ;
+    }
+    System.out.println("start_flag： " + start_flag);
+}
+//按道理来说呢，这个程序执行应该是正确的对不对？！！！
+//但是为什么程序执行结果就是不对呢？？？
+</code></pre>
+
+<h2 id="section-1">测试二：</h2>
+
+<p>源代码B</p>
+
+<pre><code>while(true) {
+    while(!start_flag) {
+        ;
+    }
+    System.out.println("start_flag： "+start_flag);
+}
+//这时候，我们把A-class文件作为源代码B进行再次编译
+</code></pre>
+
+<p>源代码B编译的class文件B-class</p>
+
+<pre><code>while(true) {
+    while(true) {//这个true是因为一开始!start_flag得到的
+        if(start_flag) {
+            System.out.println("start_flag： "+start_flag);
+        }
+    }
+//很明显，我们可以看出来这个从逻辑上来说，也是正确的。
+//所以这下问题来了，问题出在哪里呢？！！！
+//我也不知道 ！！！！
+</code></pre>
+
+<h2 id="section-2">测试三：</h2>
+
+<p>对以上的问题，我们在Debug中是找不出问题来的，通过class文件分析也得不到答案，因此，这个问题的求知上已然gg。<br />
+但是对于这个问题是有解决的办法的！！！</p>
+
+<p>源代码C</p>
+
+<pre><code>while (true){
+   Thread.sleep(000);//或者替换为以下这句话都是可以的。
+   //System.out.println("");
+    while (start_flag) {
+        System.out.println("start_flag： "+start_flag);
+    }
+}
+</code></pre>
+
+<p>源代码C编译得到的class文件c-class</p>
+
+<pre><code>while(true) {
+    Thread.sleep(0L);
+    while(start_flag) {
+        System.out.println("start_flag： "+start_flag);
+    }
+}
+//在这个class文件中的处理是不是逻辑是对的，而且执行结果也是正确的。
+//至少源码AB错在哪里，我也不知道
+</code></pre>
+
+<h2 id="section-3">结论：</h2>
+
+<p>这是一种莫名其妙的错误，我也不知道为什么。所以在此做下记录，往后若有机会解决可以来此记录解决方案。</p>
+
+<h2 id="section-4">相关的测试文件下载地址</h2>
+
+<p><a href="https://github.com/guodidi/Problem_Record_Java/blob/master/GUITest.java">GUITest.java</a></p>
+
+<p><a href="https://youtu.be/9T6YfY-BTkY">阵头</a></p>
+
+    </div>
+
+    <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2091728"></script>
+<!-- UY END -->
+
+
+</article>
+
+        </div>
+    </div>
+
+    <footer class="site-footer">
+    <div class="footer-wrapper">
+        <div class="baymax">
+            <!--head-->
+            <div class="head">
+                <div class="eye-left"></div>
+                <div class="eye-right"></div>
+                <div class="mouth"></div>
+            </div>
+            <div class="torso">
+                <div class="heart"></div>
+            </div>
+            <div class="belly">
+                <div class="cover"></div>
+            </div>
+            <div class="arm-left">
+                <div class="finger-left-big"></div>
+                <div class="finger-left-small"></div>
+            </div>
+            <div class="arm-right">
+                <div class="finger-right-big"></div>
+                <div class="finger-right-small"></div>
+            </div>
+            <div class="leg-left"></div>
+            <div class="leg-right"></div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>
